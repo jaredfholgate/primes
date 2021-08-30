@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace primes
 {
@@ -7,29 +8,31 @@ namespace primes
     {
         public void Run()
         {
-            var primes = new List<int>();
-            var current = 0;
+            var primes = new List<long> {1,2,5};
+            var current = 5;
+            var validPrimes = new List<char> { '1', '3', '7', '9'};
             while(true)
             {
                 current++;
-                var isPrime = true;
-                for(var i = 2; i < current; i++)
+                if(validPrimes.Contains(current.ToString().Last()))
                 {
-                    if(current % i == 0)
+                    var isPrime = true;
+                    for(long i = 3; i < current; i+=2)
                     {
-                        isPrime = false;
-                        break;
+                        if(current % i == 0)
+                        {
+                            isPrime = false;
+                            break;
+                        }
                     }
-                }
 
-                if(isPrime)
-                {
-                    primes.Add(current);
-                    Console.WriteLine(current);
+                    if(isPrime)
+                    {
+                        primes.Add(current);
+                        Console.WriteLine(current);
+                    }
                 }
             }
         }
-
     }
-
 }
