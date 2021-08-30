@@ -33,7 +33,7 @@ namespace primes
 
         public void Run()
         {            
-            var primes = new List<long>{2,3,5};
+            var primes = new HashSet<long>{2,3,5};
             for(long i = 7; i <= long.MaxValue; i+=2)
             {
                 if(validPrimes.Contains(i.ToString().Last()))
