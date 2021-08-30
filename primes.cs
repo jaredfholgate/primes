@@ -6,29 +6,6 @@ namespace primes
 {
     public class PrimeGenerator
     {
-        private void IncrementChecks(List<long> checks, long maxCheck)
-        {
-            for(long i = checks.Any() ? checks.Max() : 3; i <= maxCheck; i+=2)
-            {
-                if(validPrimes.Contains(i.ToString().Last()))
-                {
-                    var validCheck = true;
-                    foreach(var check in checks)
-                    {
-                        if(i % check == 0)
-                        {
-                            validCheck = false;
-                            break;
-                        }
-                    }
-                    if(validCheck)
-                    {
-                        checks.Add(i);
-                    }
-                }
-            }
-        }
-
         private List<char> validPrimes = new List<char> { '1', '3', '7', '9'};
 
         public void Run()
